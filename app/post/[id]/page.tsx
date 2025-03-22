@@ -1,5 +1,6 @@
 import { prisma } from "@/app/utils/db";
 import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -28,7 +29,7 @@ export default async function IdPage({ params }: { params: Params }) {
     <div className="max-w-3xl mx-auto py-8 px-4">
       <Link
         className={buttonVariants({ variant: "secondary" })}
-        href="/dashboard"
+        href="/"
       >
         Back to Posts
       </Link>
@@ -62,8 +63,15 @@ export default async function IdPage({ params }: { params: Params }) {
           src={data.imageUrl}
           alt={data.title}
           fill
+          priority
         />
       </div>
+
+      <Card>
+        <CardContent>
+          <p className="text-gray-700">{data.content}</p>
+        </CardContent>
+      </Card>
     </div>
   );
 }
