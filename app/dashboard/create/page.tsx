@@ -9,6 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { handleSubmission } from "@/app/actions";
 
 export default function CreateBlogroute() {
   return (
@@ -21,7 +22,7 @@ export default function CreateBlogroute() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col gap-4">
+          <form action={handleSubmission} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Label>Title</Label>
               <Input name="title" required type="text" placeholder="Title" />
