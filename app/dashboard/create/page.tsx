@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { handleSubmission } from "@/app/actions";
+import { Submitbutton } from "@/components/general/Submitbutton";
 import {
   Card,
   CardContent,
@@ -21,21 +22,21 @@ export default function CreateBlogroute() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col gap-4">
+          <form action={handleSubmission} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Label>Title</Label>
-              <Input placeholder="Enter title" />
+              <Input name="title" required type="text" placeholder="Title" />
             </div>
             <div className="flex flex-col gap-2">
               <Label>Content</Label>
-              <Textarea placeholder="Enter title" />
+              <Textarea name="content" required placeholder="Content" />
             </div>
             <div className="flex flex-col gap-2">
               <Label>Image URL</Label>
-              <Input placeholder="Enter title" />
+              <Input name="url" required type="url" placeholder="Image URL" />
             </div>
 
-            <Button>Create Post</Button>
+            <Submitbutton />
           </form>
         </CardContent>
       </Card>
