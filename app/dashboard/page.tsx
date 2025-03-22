@@ -18,6 +18,7 @@ async function getData(userId: string) {
 }
 
 export default async function DashboardRoute() {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
