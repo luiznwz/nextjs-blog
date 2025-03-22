@@ -47,7 +47,18 @@ export function BlogPostCard({ data }: IappProps) {
                   className="object-cover"
                 />
               </div>
+              <p className="text-sm font-medium text-gray-700">
+                {data.authorName}
+              </p>
             </div>
+            <time className="text-xs text-gray-500">
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              }).format((data.createdAt)
+              )}
+            </time>
           </div>
         </div>
       </Link>
